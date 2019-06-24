@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<robot name="RR_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<link name="RR_base">
+   		<visual>
+     			<geometry>
+       				<!--box size="0.1 .1 .1"/-->
+       				<cylinder radius="0.10" length="0.1"/>
+     			</geometry>
+			<!--origin rpy="0 0 0" xyz="0 0 0.1"/-->
+			<origin rpy="0 0 0" xyz="0 0 0"/>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+   		</visual>
+		<collision>
+			<geometry>
+       				<box size="0.1 .1 .1"/>
+			</geometry>
+		</collision>
+		<!--inertial>
+			<mass value="1"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial-->
+	</link>
+	<link name="RR_link_1">
+   		<visual>
+     			<geometry>
+       			
+				<cylinder radius="0.05" length="1"/>
+     			</geometry>
+			<origin rpy="1.57079 0 0" xyz="0 0.5 0"/>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+   		</visual>
+		<collision>
+			<geometry>
+       				<box size="0.05 .05 0.5"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+ 	</link>
+
+	<joint name="RR_joint_1" type="revolute">
+		<parent link="RR_base"/>
+		<child link="RR_link_1"/>
+		<axis xyz="0 0 1"/>
+		<limit effort ="1000.0" lower="-3.14159265358" upper="3.14159265358" velocity="0.5"/>
+	</joint>
+
+	<link name="RR_link_2">
+   		<visual>
+     			<geometry>
+				<cylinder radius="0.05" length="0.5"/>
+     			</geometry>
+			<origin rpy="1.57079 0 0" xyz="0 0.2 0"/>
+			<material name="cyan">
+				<color rgba="63 191 191 1"/>
+			</material>
+   		</visual>
+		<collision>
+			<geometry>
+       				<box size="0.05 .05 0.5"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+ 	</link>
+
+	<joint name="RR_joint_2" type="revolute">
+		<parent link="RR_link_1"/>
+		<child link="RR_link_2"/>
+		<origin xyz="0 1 0"/>
+		<!--axis xyz="1 0 0"/-->
+		<limit effort ="1000.0" lower="-1.57079632679" upper="1.57079632679" velocity="0.5"/>
+	</joint>
+	<link name="RR_link_3">
+   		<visual>
+     			<geometry>
+				<cylinder radius="0.05" length="0.5"/>
+     			</geometry>
+			<origin rpy="1.57079 0 0" xyz="0 0.2 0"/>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+   		</visual>
+		<collision>
+			<geometry>
+       				<box size="0.05 .05 0.5"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+ 	</link>
+
+	<joint name="RR_joint_3" type="revolute">
+		<parent link="RR_link_2"/>
+		<child link="RR_link_3"/>
+		<origin xyz="0 0.5 0"/>
+		<!--axis xyz="1 0 0"/-->
+		<limit effort ="1000.0" lower="-3.14159265358" upper="3.14159265358" velocity="0.5"/>
+	</joint>
+	<link name="RR_link_tcp">
+   		<visual>
+     			<geometry>
+				<box size="0.1 .1 0"/>
+
+     			</geometry>
+			<origin rpy="1.57079 0 0" xyz="0 0 0"/>
+			<material name="white">
+				<color rgba="1 1 1 1"/>
+			</material>
+   		</visual>
+		<collision>
+			<geometry>
+       				<box size="0.05 .05 0.5"/>
+			</geometry>
+		</collision>
+		<inertial>
+			<mass value="1"/>
+	 		<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+		</inertial>
+ 	</link>
+
+	<joint name="RR_joint_tcp" type="revolute">
+		<parent link="RR_link_3"/>
+		<child link="RR_link_tcp"/>
+		<origin xyz="0 0.45 0"/>
+		<limit effort ="1000.0" lower="-3.14159265358" upper="3.14159265358" velocity="0.5"/>
+	</joint>
+
+
+</robot>

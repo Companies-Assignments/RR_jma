@@ -1,0 +1,9 @@
+controller_list:
+  - name: manipulator_controller
+    joints:
+      - RR_joint_1
+      - RR_joint_2
+      - RR_joint_3
+  - name: gripper_controller
+    joints:
+      []

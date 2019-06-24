@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="remy_robotics" pkg="remy_robotics" type="remy_robotics_tutorial" respawn="false" output="screen">
+  </node>
+
+</launch>

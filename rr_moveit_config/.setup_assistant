@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: remy_robotics
+    relative_path: urdf/RR_robot.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/RR_robot.srdf
+  CONFIG:
+    author_name: julia_marsal
+    author_email: julia.mp2209@gmail.com
+    generated_timestamp: 1560894123
